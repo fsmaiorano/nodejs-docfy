@@ -65,7 +65,12 @@ input:focus, textarea:focus {
 
 .auth-wrapper h1 {
   font-size: 64px;
+  text-align: center;
   margin: 0 0 20px;
+}
+
+.auth-wrapper h1 .createAccount {
+  font-size: 53px;
 }
 
 .auth-wrapper form {
