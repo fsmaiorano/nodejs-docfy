@@ -11,9 +11,29 @@ module.exports = {
     return res.render('auth/signup');
   },
 
-  // async authenticate(req, res, next) {
+  async authenticate(req, res, next) {
+    try {
+      const { email, password } = req.body;
+      const user = await User.findOne({ where: { email } });
 
-  // }
+      if (!user) {
+        req.flash('error', 'Usuário inexistente');
+      }
+
+      if (!await bcrypt.compare(password, user.password)) {
+        req.flash('error', 'Senha Incorreta');
+        return res.redirect('back');
+      }
+
+      req.session.user = user;
+      return req.session.save(() => {
+        res.redirect('app/dashboard');
+      })
+
+    } catch (error) {
+      return next(error);
+    }
+  },
 
   async register(req, res, next) {
     try {
