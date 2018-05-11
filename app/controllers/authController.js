@@ -28,8 +28,7 @@ module.exports = {
       req.session.user = user;
       return req.session.save(() => {
         res.redirect('app/dashboard');
-      })
-
+      });
     } catch (error) {
       return next(error);
     }
