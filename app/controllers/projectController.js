@@ -9,8 +9,7 @@ module.exports = {
         UserId: req.session.user.id,
       });
       req.flash('success', 'Projeto criado com sucesso');
-      // res.redirect(`/app/dashboard`);
-      return res.render('dashboard/index');
+      return res.redirect(`/`);
     }
     catch (error) {
       return next(error);
