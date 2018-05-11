@@ -47,6 +47,7 @@ input:focus, textarea:focus {
 
 .btn.btn-danger {
   background: #E06666;
+  padding: 10px 18.5px;
 }
 
 .btn.btn-danger:hover {
