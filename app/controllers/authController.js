@@ -43,6 +43,7 @@ module.exports = {
   async register(req, res, next) {
     try {
       const { email } = req.body;
+
       if (await User.findOne({ where: { email } })) {
         req.flash('error', 'E-mail já cadastrado');
         return res.redirect('back');

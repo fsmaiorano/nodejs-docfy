@@ -3,20 +3,7 @@
 {% block body %}
 
  <div class="wrapper">
-    <header id="header">
-      <div class="container">
-        <h1>Docfy</h1>
-        <div class="user-info">
-          <p class="welcome">
-            Bem vindo<br>
-            <strong>{{ user.name }}</strong>
-          </p>
-          <a href="/signout"  class="btn btn-danger">
-            <img src="/img/signout.svg">
-          </a>
-        </div>
-      </div>
-    </header>
+    {% include "partials/nav.njk" %}
 
     <section id="main">
       <div class="container">
@@ -35,7 +22,7 @@
         <section id="content">
           <div class="project-list">
             {% for project in projects %}
-              <a href="">
+              <a href="/app/project/{{ project.id }}">
                 <strong>{{project.title}}</strong>
               </a>
             {% endfor %}

@@ -28,6 +28,7 @@ routes.get('/app/dashboard', dashboardController.index);
 
 // Project
 routes.post('/project', projectController.add);
+routes.get('/app/project/:projectId', projectController.show);
 
 routes.use((err, req, res, _next) => {
   res.status(err.status || 500);
