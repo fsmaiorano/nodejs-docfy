@@ -11,6 +11,12 @@ module.exports = {
     return res.render('auth/signup');
   },
 
+  signout(req, res) {
+    return req.session.destroy(() => {
+      res.redirect('/');
+    });
+  },
+
   async authenticate(req, res, next) {
     try {
       const { email, password } = req.body;

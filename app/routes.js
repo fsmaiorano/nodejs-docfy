@@ -18,6 +18,8 @@ routes.use((req, res, next) => {
 // Auth
 routes.get('/', guestMiddleware, authController.signin);
 routes.get('/signup', guestMiddleware, authController.signup);
+routes.get('/signout', guestMiddleware, authController.signout);
+
 routes.post('/register', authController.register);
 routes.post('/authenticate', authController.authenticate);
 
