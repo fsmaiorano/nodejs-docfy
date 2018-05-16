@@ -19,7 +19,7 @@
           <nav>
             <div class="sessions">
                 {% for document in documents %}
-                  <a href="">
+                  <a href="/app/project/{{ project.id }}/document/{{ document.id }}">
                    {{document.title}}
                   </a>
                 {% endfor %}

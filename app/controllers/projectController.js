@@ -28,6 +28,11 @@ module.exports = {
       const documents = project.Documents.filter(d => d.ProjectId === selectedProject);
 
       const activeProject = req.params.projectId;
+      // const activeDocument = 0;
+
+      // if(documents.length > 0) {
+
+      // }
 
       return res.render('project/index', { project, documents, activeProject });
     } catch (err) {
