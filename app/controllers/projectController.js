@@ -27,12 +27,7 @@ module.exports = {
 
       const documents = project.Documents.filter(d => d.ProjectId === selectedProject);
 
-      const activeProject = req.params.projectId;
-      // const activeDocument = 0;
-
-      // if(documents.length > 0) {
-
-      // }
+      const activeProject = selectedProject;
 
       return res.render('project/show', { project, documents, activeProject });
     } catch (err) {
