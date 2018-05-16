@@ -1,0 +1,43 @@
+{% extends "layouts/default.njk" %}
+
+{% block body %}
+
+  <div class="wrapper">
+    {% include "partials/nav.njk" %}
+    {# {% include "partials/documents.njk" %} #}
+
+
+    <section id="main">
+      <div class="container">
+        <header>
+          <h2>{{project.title}}</h2>
+          <div class="addon">
+            <a href="" class="btn btn-danger">Excluir projeto</a>
+          </div>
+        </header>
+
+        <section id="content">
+          <nav>
+            <div class="sessions">
+                {% for document in documents %}
+                  <a href="/app/project/{{ project.id }}/document/{{ document.id }}">
+                   {{document.title}}
+                  </a>
+                {% endfor %}
+
+              {# <a href="">Geral</a>
+              <a href="" class="active">Banco de dados</a>
+              <a href="">Autenticação</a>
+              <a href="">API</a>
+              <a href="">Configurações</a> #}
+            </div>
+
+            <a href="new.html" class="btn">Nova seção</a>
+          </nav>
+        </section>
+      </div>
+    </section>
+
+  </div>
+
+{% endblock %}

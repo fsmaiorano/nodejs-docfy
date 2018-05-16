@@ -34,7 +34,7 @@ module.exports = {
 
       // }
 
-      return res.render('project/index', { project, documents, activeProject });
+      return res.render('project/show', { project, documents, activeProject });
     } catch (err) {
       return next(err);
     }
