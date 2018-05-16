@@ -28,5 +28,19 @@ module.exports = {
     }
   },
 
+  async add(req, res, next) {
+    try {
+      const { projectId } = req.params;
+      await Project.create({
+        ...req.body,
+        ProjectId: projectId,
+      });
+      req.flash('success', 'Documento criado com sucesso');
+      return res.redirect('/');
+    } catch(error) {
+      return next(error);
+    }
+  },
+
 };
 

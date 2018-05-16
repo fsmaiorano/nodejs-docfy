@@ -33,6 +33,7 @@ routes.get('/app/project/:projectId', projectController.show);
 
 // Document
 routes.get('/app/project/:projectId/document/:documentId', documentController.show);
+routes.post('/app/project/:projectId/new', documentController.add);
 
 routes.use((err, req, res, _next) => {
   res.status(err.status || 500);
