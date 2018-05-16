@@ -32,6 +32,7 @@ routes.post('/project', projectController.add);
 routes.get('/app/project/:projectId', projectController.show);
 
 // Document
+routes.post('/app/project/:projectId/document/add', documentController.add);
 routes.get('/app/project/:projectId/document/new', documentController.newDocument);
 routes.get('/app/project/:projectId/document/:documentId', documentController.show);
 
