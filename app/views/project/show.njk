@@ -23,16 +23,25 @@
                   </a>
                 {% endfor %}
             </div>
-            <a href="new.html" class="btn">Nova seção</a>
+            {# <a href="new.html" class="btn">Nova seção</a> #}
+            <a href="/app/project/{{ project.id }}/document/new" class="btn">Nova seção</a>
           </nav>
 
+          {% if createDocument %}
             <article>
+              {% include 'partials/new.njk' %}
+            </article>
+
+          {% else %}
+          <article>
             <div class="project-header">
               <h1>{{ currentDocument.title }}</h1>
               <a href="">Remover seção</a>
             </div>
               {{ currentDocument.formattedContent | safe }}
           </article>
+          {% endif %}
+
 
         </section>
       </div>

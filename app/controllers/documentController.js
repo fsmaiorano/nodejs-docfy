@@ -2,6 +2,16 @@ const { Project, Document } = require('../models');
 
 module.exports = {
 
+  async newDocument(req, res, next) {
+    try {
+      return res.render('project/show', {
+        createDocument: true,
+      });
+    } catch (error) {
+      return next(error);
+    }
+  },
+
   async show(req, res, next) {
     try {
       const { projectId, documentId } = req.params;
@@ -28,19 +38,19 @@ module.exports = {
     }
   },
 
-  async add(req, res, next) {
-    try {
-      const { projectId } = req.params;
-      await Project.create({
-        ...req.body,
-        ProjectId: projectId,
-      });
-      req.flash('success', 'Documento criado com sucesso');
-      return res.redirect('/');
-    } catch(error) {
-      return next(error);
-    }
-  },
+  // async add(req, res, next) {
+  //   try {
+  //     const { projectId } = req.params;
+  //     await Project.create({
+  //       ...req.body,
+  //       ProjectId: projectId,
+  //     });
+  //     req.flash('success', 'Documento criado com sucesso');
+  //     return res.redirect('/');
+  //   } catch (error) {
+  //     return next(error);
+  //   }
+  // },
 
 };
 
