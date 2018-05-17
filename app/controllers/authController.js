@@ -24,6 +24,7 @@ module.exports = {
 
       if (!user) {
         req.flash('error', 'Usuário inexistente');
+        return res.redirect('back');
       }
 
       if (!await bcrypt.compare(password, user.password)) {
