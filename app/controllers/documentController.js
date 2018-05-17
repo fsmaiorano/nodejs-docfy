@@ -21,6 +21,7 @@ module.exports = {
         documents,
         activeProject,
         createDocument: true,
+        user: req.session.user,
       });
     } catch (error) {
       return next(error);
