@@ -35,6 +35,7 @@ routes.get('/app/project/:projectId', projectController.show);
 routes.post('/app/project/:projectId/document/add', documentController.add);
 routes.get('/app/project/:projectId/document/new', documentController.newDocument);
 routes.get('/app/project/:projectId/document/:documentId', documentController.show);
+routes.delete('/app/project/:projectId/document/:documentId', documentController.delete);
 
 routes.use((err, req, res, _next) => {
   res.status(err.status || 500);

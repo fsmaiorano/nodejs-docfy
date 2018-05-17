@@ -23,7 +23,6 @@
                   </a>
                 {% endfor %}
             </div>
-            {# <a href="new.html" class="btn">Nova seção</a> #}
             <a href="/app/project/{{ project.id }}/document/new" class="btn">Nova seção</a>
           </nav>
 
@@ -39,7 +38,12 @@
           <article>
             <div class="project-header">
               <h1>{{ currentDocument.title }}</h1>
-              <a href="">Remover seção</a>
+              <form action="/app/project/{{ project.id }}/document/{{ currentDocument.id }}?_method=DELETE" method="POST">
+                  <a href="javascript:;" onclick="parentNode.submit()">Remover seção</a>
+              </form>
+                  {# <form action="/app/project/{{ project.id }}/document/{{ currentDocument.id }}?_method=DELETE" method="POST">
+                    <button type="submit">Remover seção</button>
+                  </form> #}
             </div>
               {{ currentDocument.formattedContent | safe }}
           </article>

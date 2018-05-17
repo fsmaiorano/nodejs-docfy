@@ -67,5 +67,16 @@ module.exports = {
     }
   },
 
+  async delete(req, res, next) {
+    try {
+      const { projectId, documentId } = req.params;
+      await Document.destroy({ where: { id: documentId } });
+      req.flash('success', 'Documento removido com sucesso');
+      return res.redirect(`/app/project/${projectId}`);
+    } catch (error) {
+      return next(error);
+    }
+  },
+
 };
 
