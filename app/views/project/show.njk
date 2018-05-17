@@ -36,7 +36,7 @@
               {% include 'partials/new.njk' %}
             </article>
 
-          {% else %}
+          {% elif currentDocument %}
           <article>
             <div class="project-header">
               <h1>{{ currentDocument.title }}</h1>
@@ -48,6 +48,8 @@
               {{ currentDocument.formattedContent | safe }}
             </div>
           </article>
+          {% else %}
+          <article></article>
           {% endif %}
 
 
