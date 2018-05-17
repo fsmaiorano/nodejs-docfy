@@ -35,4 +35,15 @@ module.exports = {
     }
   },
 
+  async delete(req, res, next) {
+    try {
+      const selectedProject = parseInt(req.params.projectId);
+      await Project.destroy({ where: { id: selectedProject } });
+      req.flash('success', 'Projeto removido com sucesso');
+      return res.redirect('/app/dashboard');
+    } catch (error) {
+      return next(error);
+    }
+  },
+
 };

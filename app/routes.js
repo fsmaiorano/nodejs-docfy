@@ -30,6 +30,7 @@ routes.get('/app/dashboard', dashboardController.index);
 // Project
 routes.post('/project', projectController.add);
 routes.get('/app/project/:projectId', projectController.show);
+routes.delete('/app/project/:projectId', projectController.delete);
 
 // Document
 routes.post('/app/project/:projectId/document/add', documentController.add);

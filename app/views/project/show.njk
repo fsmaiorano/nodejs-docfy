@@ -10,7 +10,9 @@
         <header>
           <h2>{{project.title}}</h2>
           <div class="addon">
-            <a href="" class="btn btn-danger">Excluir projeto</a>
+          <form action="/app/project/{{ project.id }}?_method=DELETE" method="POST">
+                  <a href="javascript:;" class="btn btn-danger" onclick="parentNode.submit()">Excluir projeto</a>
+          </form>
           </div>
         </header>
 
