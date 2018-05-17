@@ -31,12 +31,19 @@ module.exports = {
       let currentDocument = null;
       let activeDocument = null;
 
-      if(documents.length > 0) {
+      if (documents.length > 0) {
         currentDocument = documents[0];
         activeDocument = currentDocument.id;
       }
 
-      return res.render('project/show', { project, documents, activeProject, currentDocument, activeDocument, user: req.session.user });
+      return res.render('project/show', {
+        project,
+        documents,
+        activeProject,
+        currentDocument,
+        activeDocument,
+        user: req.session.user,
+      });
     } catch (err) {
       return next(err);
     }
