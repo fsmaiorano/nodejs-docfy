@@ -28,8 +28,15 @@ module.exports = {
       const documents = project.Documents.filter(d => d.ProjectId === selectedProject);
 
       const activeProject = selectedProject;
+      let currentDocument = null;
+      let activeDocument = null;
 
-      return res.render('project/show', { project, documents, activeProject });
+      if(documents.length > 0) {
+        currentDocument = documents[0];
+        activeDocument = currentDocument.id;
+      }
+
+      return res.render('project/show', { project, documents, activeProject, currentDocument, activeDocument, user: req.session.user });
     } catch (err) {
       return next(err);
     }

@@ -47,6 +47,7 @@ module.exports = {
         activeProject: parseInt(projectId),
         activeDocument: parseInt(documentId),
         currentDocument: selectedDocument[0],
+        user: req.session.user,
       });
     } catch (error) {
       return next(error);
